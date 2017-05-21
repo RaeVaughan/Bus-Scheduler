@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bus Scheduler</title>
+  <!-- viewport link -->
+  <meta name=”viewport” content=”width=device-width, initial-scale=1.0”>
+  <!-- bootstrap link -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- css link -->
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+
+<body>
+  <!-- main container -->
+  <div class="container">
+
+    <!-- jumbotron -->
+    <div class="jumbotron" id="header">
+      <h1>Bus Scheduler</h1>
+      <h3>Input and find information on bus names, frequency, and destinations</h3>
+    </div>
+
+    <!-- container for everything but header -->
+    <div class="row">
+
+      <div class="col-md-12">
+        <!-- panel with input information-->
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Current Bus Schedule</strong></h3>
+          </div>
+
+          <div class="panel-body">
+            <table class="table table-hover" id='bus-table'>
+              <thead>
+                <tr>
+                  <th>Bus Name</th>
+                  <th>Destination</th>
+                  <th>Frequency (min)</th>
+                  <th>Next Arrival</th>
+                  <th>Minues Away</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- form to input information  -->
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Add Bus</strong></h3>
+          </div>
+
+          <div class="panel-body">
+            <!-- Entry Form -->
+            <form action="">
+              <div class="form-group">
+                <label for="bus-name-input">Bus Name</label>
+                <input class="form-control" id="bus-name-input" type="text">
+              </div>
+              <div class="form-group">
+                <label for="destination-input">Destination</label>
+                <input class="form-control" id="destination-input" type="text">
+              </div>
+              <div class="form-group">
+                <label for="first-bus-input">First Bus Time (HH:mm - military time)</label>
+                <input class="form-control" id="first-bus-input" type="text">
+              </div>
+              <div class="form-group">
+                <label for="frequency-input">Frequency (min)</label>
+                <input class="form-control" id="frequency-input" type="text">
+              </div>
+              <button class="btn btn-primary" id="add-bus-btn" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- jQuery link -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <!-- firebase link -->
+  <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+	<!-- JS link -->
+  <script type="text/javascript" src="assets/app.js"></script>
+</body>
+
+</html>
