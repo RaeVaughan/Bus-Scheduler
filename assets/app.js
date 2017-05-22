@@ -64,7 +64,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 	//moment.js stuff will go here
 
 	//Adding bus data as a new row in the table
-	$("#bus-table > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + firstBusTime + "</td><td>" + frequency + "</td></tr>");
+	$("#bus-table > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + frequency + "</td></tr>");
 
 });
 
