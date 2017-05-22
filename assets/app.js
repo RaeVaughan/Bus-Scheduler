@@ -42,5 +42,49 @@ $("#add-bus-btn").click(function(event){
 	$("#destination-input").val("");
 	$("#first-bus-input").val("");
 	$("#frequency-input").val("");
+});
+
+//function on firebase event. when there are children, rows are added to the html; when a new child is added, a new row in the html appears
+//also handles moments.js time manipulation
+database.ref().on("child_added", function(childSnapshot, prevChildKey){
+
+	console.log(childSnapshot.val());
+
+	//store the child data as variables
+	var name = childSnapshot.val().busName;
+	var destination = childSnapshot.val().busDestination;
+	var firstBusTime = childSnapshot.val().firstTime;
+	var frequency = childSnapshot.val().busFrequency;
+
+	console.log(name);
+	console.log(destination);
+	console.log(firstBusTime);
+	console.log(frequency);
+
+	//moment.js stuff will go here
+
+	//Adding bus data as a new row in the table
+	$("#bus-table > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + firstBusTime + "</td><td>" + frequency + "</td></tr>");
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
