@@ -48,7 +48,7 @@ $("#add-bus-btn").click(function(event){
 //also handles moments.js time manipulation
 database.ref().on("child_added", function(childSnapshot, prevChildKey){
 
-	console.log(childSnapshot.val());
+	// console.log(childSnapshot.val());
 
 	//store the child data as variables
 	var name = childSnapshot.val().busName;
@@ -56,42 +56,27 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 	var firstBusTime = childSnapshot.val().firstTime;
 	var frequency = childSnapshot.val().busFrequency;
 
-	console.log(name);
-	console.log(destination);
-	console.log(firstBusTime);
-	console.log(frequency);
+	// console.log(name);
+	// console.log(destination);
+	// console.log(firstBusTime);
+	// console.log(frequency);
 
+	//math to get next bus time and minutes away
+	//converts time back a year to prevent conflicts
 	var firstTimeConverted = moment(firstBusTime, "hh:mm").subtract(1, "years");
+	//current time
 	var currentTime = moment();
+	//difference in minutes between now and the first bus time
 	var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+	//takes the remainder between that difference and the frequency
 	var timeRemainder = diffTime % frequency;
+	//gets the exact minutes until next bus
 	var minutesAway = frequency - timeRemainder;
+	//gets the time of the next bus
 	var nextBus = moment().add(minutesAway, "minutes");
+	//makes that time pretty
 	var nextBusPretty = moment(nextBus).format("h:mm");
-	console.log(nextBusPretty);
 
 	//Adding bus data as a new row in the table
 	$("#bus-table > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextBusPretty + "</td><td>" + minutesAway + "</td></tr>");
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,9 +2,51 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: #eee;
+}
 
 /***** jumbotron *****/
 
 #header {
+	margin-top: 10px;
 	text-align: center;
+	background-image: url("../assets/highway.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	color: #eee;
+	text-shadow: 0px 0px 2px #000;
+	border-radius: 10px;
+}
+
+
+/***** bus schedule boxes *****/
+
+.panel-primary>.panel-heading{
+	background-color: #032B0B;
+  border-color: #032B0B;
+  color: #eee;
+}
+
+.panel-primary {
+	border: none;
+}
+
+.panel {
+	border-radius: 8px;
+}
+
+.btn-primary {
+	background-color: #03032B;
+	border: none;
+	font-size: 16px;
+}
+
+.btn:hover {
+	-webkit-transform: scale(1.10);
+  -ms-transform: scale(1.10);
+  transform: scale(1.10);
+  background-color: #114B72;
+  border: none;
 }
