@@ -61,10 +61,17 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 	console.log(firstBusTime);
 	console.log(frequency);
 
-	//moment.js stuff will go here
+	var firstTimeConverted = moment(firstBusTime, "hh:mm").subtract(1, "years");
+	var currentTime = moment();
+	var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+	var timeRemainder = diffTime % frequency;
+	var minutesAway = frequency - timeRemainder;
+	var nextBus = moment().add(minutesAway, "minutes");
+	var nextBusPretty = moment(nextBus).format("h:mm");
+	console.log(nextBusPretty);
 
 	//Adding bus data as a new row in the table
-	$("#bus-table > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + frequency + "</td></tr>");
+	$("#bus-table > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextBusPretty + "</td><td>" + minutesAway + "</td></tr>");
 
 });
 
