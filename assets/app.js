@@ -77,6 +77,28 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 	//makes that time pretty
 	var nextBusPretty = moment(nextBus).format("h:mm");
 
+	//commented out code below was an attempt at adding a remove button and function; could not get anything to happen on button click
+	//variables to create table
+	// var row = $("<tr>");
+	// var nameCell = $("<td>" + name + "</td>");
+	// var destinationCell = $("<td>" + destination + "</td>");
+	// var frequencyCell = $("<td>" + frequency + "</td>");
+	// var nextBusCell = $("<td>" + nextBusPretty + "</td>");
+	// var minutesAwayCell = $("<td>" + minutesAway + "</td>");
+	// var removeButton = ("<button type='button' class='btn btn-default' id='remove'>Remove</button>");
+
+	// row.append(nameCell);
+	// row.append(destinationCell);
+	// row.append(frequencyCell);
+	// row.append(nextBusCell);
+	// row.append(minutesAwayCell);
+	// row.append(removeButton);
+
+	// $("#bus-table > tbody").append(row);
+
 	//Adding bus data as a new row in the table
 	$("#bus-table > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextBusPretty + "</td><td>" + minutesAway + "</td></tr>");
+
+		
+	
 });
